@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYNAMITECH | Wholesale Distribution US &amp; LATAM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        :root{
+            --orange:#E8741F;
+            --orange-dk:#C55E0D;
+            --orange-lt:#FEF0E6;
+            --bg:#FFFFFF;
+            --s1:#F6F6F6;
+            --s2:#EEEEEE;
+            --dark:#0C0C0C;
+            --dark2:#1E1E1E;
+            --text:#111111;
+            --muted:#666666;
+            --border:#E2E2E2;
+        }
+        html{scroll-behavior:smooth;}
+        body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+
+        /* ── NAV ── */
+        nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+        .nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;}
+        .nav-logo-text{font-size:17px;font-weight:900;color:var(--dark);letter-spacing:3px;}
+        .nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;transition:color .2s;}
+        .nav-links a:hover{color:var(--orange);}
+        .nav-cta{background:var(--orange)!important;color:#fff!important;padding:9px 22px;border-radius:5px;transition:background .2s!important;}
+        .nav-cta:hover{background:var(--orange-dk)!important;}
+
+        /* ── HERO ── */
+        #home{padding-top:68px;background:var(--dark);overflow:hidden;position:relative;}
+        .hero-inner{max-width:1240px;margin:0 auto;padding:0 6%;display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:580px;align-items:center;}
+        .hero-left{padding:80px 60px 80px 0;position:relative;z-index:2;}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,116,31,.12);border:1px solid rgba(232,116,31,.45);color:var(--orange);padding:6px 14px;border-radius:100px;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
+        .badge-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;display:inline-block;}
+        h1{font-size:clamp(40px,6vw,74px);font-weight:900;line-height:.97;letter-spacing:-2.5px;margin-bottom:24px;color:#fff;}
+        h1 em{color:var(--orange);font-style:normal;}
+        .hero-desc{font-size:16px;color:#888;max-width:440px;margin-bottom:40px;line-height:1.8;}
+        .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+        .btn-p{background:var(--orange);color:#fff;padding:13px 30px;border-radius:5px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.4px;transition:background .2s,transform .2s;}
+        .btn-p:hover{background:var(--orange-dk);transform:translateY(-2px);}
+        .btn-o{background:transparent;color:#fff;padding:13px 30px;border-radius:5px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.25);transition:border-color .2s,color .2s,transform .2s;}
+        .btn-o:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);}
+        .hero-right{position:relative;height:100%;min-height:580px;overflow:hidden;}
+        .hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;}
+        .hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,transparent 50%);}
+        .hero-tag{position:absolute;bottom:28px;right:28px;background:var(--orange);color:#fff;padding:10px 18px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;z-index:3;}
+
+        /* ── STATS ── */
+        .stats{background:var(--orange);}
+        .stats-inner{max-width:1240px;margin:0 auto;padding:0 6%;display:grid;grid-template-columns:repeat(4,1fr);}
+        .stat{padding:28px 0;text-align:center;border-right:1px solid rgba(255,255,255,.25);}
+        .stat:last-child{border-right:none;}
+        .stat-n{font-size:32px;font-weight:900;color:#fff;display:block;letter-spacing:-1px;line-height:1;}
+        .stat-l{font-size:11px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1.8px;margin-top:5px;display:block;}
+
+        /* ── SHARED ── */
+        section{padding:108px 6%;}
+        .si{max-width:1240px;margin:0 auto;}
+        .stag{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block;}
+        h2{font-size:clamp(30px,4vw,52px);font-weight:900;letter-spacing:-1.8px;line-height:1.02;margin-bottom:18px;color:var(--text);}
+        .sdesc{font-size:15px;color:var(--muted);line-height:1.85;}
+
+        /* ── ABOUT ── */
+        #about{background:var(--s1);}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center;}
+        .img-wrap{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 20px 60px rgba(0,0,0,.1);}
+        .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
+        .img-wrap:hover img{transform:scale(1.03);}
+        .orange-block{position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;background:var(--orange);border-radius:5px;z-index:-1;opacity:.4;}
+        .about-text p{color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:22px;}
+        .vals{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+        .val{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted);}
+        .vdot{width:8px;height:8px;background:var(--orange);border-radius:50%;flex-shrink:0;}
+
+        /* ── SERVICES ── */
+        #services{background:var(--bg);}
+        .sh{text-align:center;margin-bottom:64px;}
+        .sh .sdesc{margin:0 auto;max-width:520px;}
+        .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+        .sc{background:var(--s1);border:1.5px solid var(--border);border-radius:10px;padding:34px 26px;transition:border-color .3s,transform .3s,box-shadow .3s;}
+        .sc:hover{border-color:var(--orange);transform:translateY(-5px);box-shadow:0 16px 40px rgba(232,116,31,.1);}
+        .si-icon{width:50px;height:50px;background:var(--orange-lt);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px;}
+        .sc h3{font-size:17px;font-weight:700;margin-bottom:12px;letter-spacing:-.3px;color:var(--text);}
+        .sc p{font-size:13.5px;color:var(--muted);line-height:1.75;}
+
+        /* ── TEAM ── */
+        #team{background:var(--dark);}
+        #team h2,#team .stag{color:#fff;}
+        .th{text-align:center;margin-bottom:64px;}
+        .th .sdesc{margin:0 auto;max-width:520px;color:#888;}
+        .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+        .tc{background:var(--dark2);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:30px 24px;transition:border-color .3s,transform .3s;}
+        .tc:hover{border-color:rgba(232,116,31,.5);transform:translateY(-4px);}
+        .initials{width:56px;height:56px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;margin-bottom:16px;}
+        .tc h3{font-size:15px;font-weight:700;margin-bottom:4px;color:#fff;}
+        .trole{font-size:11px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;}
+        .tdiv{height:1px;background:rgba(255,255,255,.07);margin-bottom:18px;}
+        .tci{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#888;margin-bottom:8px;text-decoration:none;transition:color .2s;}
+        .tci:hover{color:var(--orange);}
+        .ci-ic{width:26px;height:26px;background:rgba(255,255,255,.06);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+
+        /* ── CONTACT ── */
+        #contact{background:var(--s1);}
+        .cg{display:grid;grid-template-columns:1fr 1.25fr;gap:88px;align-items:start;}
+        .ci p{color:var(--muted);margin-bottom:40px;font-size:15px;line-height:1.85;}
+        .cds{display:flex;flex-direction:column;gap:20px;}
+        .cd{display:flex;align-items:flex-start;gap:16px;}
+        .cd-ic{width:46px;height:46px;background:var(--orange-lt);border:1.5px solid rgba(232,116,31,.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+        .cd-txt strong{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;}
+        .cd-txt a{color:var(--text);text-decoration:none;font-size:14.5px;font-weight:600;transition:color .2s;}
+        .cd-txt a:hover{color:var(--orange);}
+        .cf{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:42px;box-shadow:0 10px 40px rgba(0,0,0,.06);}
+        .cf-title{font-size:22px;font-weight:800;margin-bottom:6px;letter-spacing:-.5px;color:var(--text);}
+        .cf-sub{color:var(--muted);font-size:13.5px;margin-bottom:32px;}
+        .fg{margin-bottom:18px;}
+        .fr{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+        label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px;}
+        input,textarea,select{width:100%;background:var(--s1);border:1.5px solid var(--border);border-radius:7px;padding:12px 15px;color:var(--text);font-size:14px;font-family:'Inter',sans-serif;transition:border-color .2s;outline:none;}
+        input:focus,textarea:focus,select:focus{border-color:var(--orange);background:#fff;}
+        input::placeholder,textarea::placeholder{color:#aaa;}
+        textarea{resize:vertical;min-height:115px;}
+        .fsub{width:100%;background:var(--orange);color:#fff;border:none;padding:14px 32px;border-radius:7px;font-size:14px;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:background .2s,transform .2s;margin-top:6px;font-family:'Inter',sans-serif;}
+        .fsub:hover{background:var(--orange-dk);transform:translateY(-1px);}
+
+        /* ── CTA STRIP ── */
+        .cta-strip{background:var(--orange);padding:72px 6%;}
+        .cta-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+        .cta-text h3{font-size:clamp(24px,3vw,38px);font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:8px;}
+        .cta-text p{color:rgba(255,255,255,.75);font-size:15px;}
+        .btn-white{background:#fff;color:var(--orange);padding:14px 34px;border-radius:5px;text-decoration:none;font-weight:800;font-size:14px;letter-spacing:.5px;transition:transform .2s,box-shadow .2s;flex-shrink:0;}
+        .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+
+        /* ── FOOTER ── */
+        footer{background:var(--dark);padding:64px 6% 36px;}
+        .fi{max-width:1240px;margin:0 auto;}
+        .ft{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:64px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px;}
+        .fb p{color:#666;font-size:13.5px;line-height:1.75;max-width:300px;margin-top:14px;}
+        .socials{display:flex;gap:9px;margin-top:22px;}
+        .sb{width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:6px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#666;font-size:12px;font-weight:700;transition:background .2s,color .2s;}
+        .sb:hover{background:var(--orange);color:#fff;}
+        .fc h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--orange);margin-bottom:18px;}
+        .fc ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+        .fc ul a{color:#666;text-decoration:none;font-size:13.5px;transition:color .2s;}
+        .fc ul a:hover{color:#fff;}
+        .fb2{display:flex;align-items:center;justify-content:space-between;}
+        .fb2 p{color:#555;font-size:12.5px;}
+        .fb2 span{color:var(--orange);}
+        .fb2 a{color:#555;text-decoration:none;}
+        .fb2 a:hover{color:var(--orange);}
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:960px){
+            .hero-inner{grid-template-columns:1fr;}
+            .hero-right{display:none;}
+            .hero-left{padding:80px 0;}
+            .about-grid,.cg{grid-template-columns:1fr;gap:52px;}
+            .sg,.tg{grid-template-columns:1fr 1fr;}
+            .stats-inner{grid-template-columns:repeat(2,1fr);}
+            .stat:nth-child(2){border-right:none;}
+            .ft{grid-template-columns:1fr 1fr;gap:40px;}
+            .cta-inner{flex-direction:column;text-align:center;}
+        }
+        @media(max-width:620px){
+            .sg,.tg{grid-template-columns:1fr;}
+            .nav-links{display:none;}
+            .fr{grid-template-columns:1fr;}
+            .ft{grid-template-columns:1fr;gap:32px;}
+            h1{letter-spacing:-1.5px;}
+            .hero-btns{flex-direction:column;}
+            .fb2{flex-direction:column;gap:8px;text-align:center;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+    <a href="#home" class="nav-logo">
+        <svg width="38" height="38" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="37" stroke="#E8741F" stroke-width="2.2"/>
+            <circle cx="40" cy="40" r="26" stroke="#E8741F" stroke-width=".9" stroke-dasharray="4 2.5"/>
+            <line x1="40" y1="14" x2="40" y2="24" stroke="#E8741F" stroke-width="2"/>
+            <line x1="40" y1="24" x2="54" y2="24" stroke="#E8741F" stroke-width="2"/>
+            <line x1="54" y1="24" x2="54" y2="32" stroke="#E8741F" stroke-width="2"/>
+            <line x1="40" y1="66" x2="40" y2="56" stroke="#E8741F" stroke-width="2"/>
+            <line x1="40" y1="56" x2="26" y2="56" stroke="#E8741F" stroke-width="2"/>
+            <line x1="26" y1="56" x2="26" y2="48" stroke="#E8741F" stroke-width="2"/>
+            <line x1="14" y1="40" x2="24" y2="40" stroke="#E8741F" stroke-width="2"/>
+            <line x1="24" y1="40" x2="24" y2="26" stroke="#E8741F" stroke-width="2"/>
+            <line x1="66" y1="40" x2="56" y2="40" stroke="#E8741F" stroke-width="2"/>
+            <line x1="56" y1="40" x2="56" y2="54" stroke="#E8741F" stroke-width="2"/>
+            <circle cx="54" cy="32" r="3.5" fill="#E8741F"/>
+            <circle cx="26" cy="48" r="3.5" fill="#E8741F"/>
+            <circle cx="24" cy="26" r="3.5" fill="#E8741F"/>
+            <circle cx="56" cy="54" r="3.5" fill="#E8741F"/>
+            <line x1="31" y1="40" x2="49" y2="40" stroke="#E8741F" stroke-width="2.5"/>
+            <line x1="40" y1="31" x2="40" y2="49" stroke="#E8741F" stroke-width="2.5"/>
+            <circle cx="40" cy="40" r="5" fill="#E8741F"/>
+        </svg>
+        <span class="nav-logo-text">DYNAMITECH</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home" style="padding:0;">
+    <div class="hero-inner">
+        <div class="hero-left">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Wholesale Distribution · US &amp; LATAM
+            </div>
+            <h1>We Deliver<br><em>Products.</em><br>You Deliver<br>Results.</h1>
+            <p class="hero-desc">
+                Miami-based wholesale distributor connecting suppliers with retailers and distributors across the United States and Latin America.
+            </p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-p">Start a Conversation →</a>
+                <a href="#services" class="btn-o">Our Services</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=85&fit=crop" alt="Dynamitech warehouse" loading="eager"/>
+            <span class="hero-tag">Miami, FL — Est. Dynamitech LLC</span>
+        </div>
+    </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats">
+    <div class="stats-inner">
+        <div class="stat">
+            <span class="stat-n">US &amp; LATAM</span>
+            <span class="stat-l">Markets Served</span>
+        </div>
+        <div class="stat">
+            <span class="stat-n">6+</span>
+            <span class="stat-l">Product Categories</span>
+        </div>
+        <div class="stat">
+            <span class="stat-n">Miami, FL</span>
+            <span class="stat-l">Headquarters</span>
+        </div>
+        <div class="stat">
+            <span class="stat-n">24/7</span>
+            <span class="stat-l">Operations</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+    <div class="si">
+        <div class="about-grid">
+            <div style="position:relative">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=85&fit=crop" alt="Warehouse operations" loading="lazy"/>
+                </div>
+                <div class="orange-block"></div>
+            </div>
+            <div class="about-text">
+                <span class="stag">About Dynamitech</span>
+                <h2>Built to Move<br>Products at Scale.</h2>
+                <p>DYNAMITECH LLC is a wholesale distributor headquartered in Miami, Florida, specializing in the buying, selling, and distribution of products across the US and LATAM markets.</p>
+                <p>We offer electronics, kitchen items, pet accessories, home goods, and fitness equipment — managed with precision, speed, and commitment to quality.</p>
+                <div class="vals">
+                    <div class="val"><span class="vdot"></span>Optimized shipping and distribution processes</div>
+                    <div class="val"><span class="vdot"></span>Serving retailers and distributors across two continents</div>
+                    <div class="val"><span class="vdot"></span>Highest standards of product quality and compliance</div>
+                    <div class="val"><span class="vdot"></span>Hard work, grind, and continuous optimization</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+    <div class="si">
+        <div class="sh">
+            <span class="stag">What We Do</span>
+            <h2>Our Services</h2>
+            <p class="sdesc">End-to-end distribution solutions connecting your products with markets across the Americas.</p>
+        </div>
+        <div class="sg">
+            <div class="sc">
+                <div class="si-icon">📦</div>
+                <h3>Wholesale Distribution</h3>
+                <p>Large-scale product sourcing and distribution for retailers and distributors. Inventory management, packaging, and order fulfillment at volume.</p>
+            </div>
+            <div class="sc">
+                <div class="si-icon">🌎</div>
+                <h3>US &amp; LATAM Markets</h3>
+                <p>Bridging suppliers and buyers across the United States and Latin America with reliable logistics networks and deep market expertise.</p>
+            </div>
+            <div class="sc">
+                <div class="si-icon">🏭</div>
+                <h3>Warehousing &amp; Storage</h3>
+                <p>Secure warehouse facilities in Miami, strategically positioned for fast distribution to domestic and international destinations.</p>
+            </div>
+            <div class="sc">
+                <div class="si-icon">📱</div>
+                <h3>Electronics Distribution</h3>
+                <p>Specialized handling of consumer electronics — safe packaging, compliance, and on-time delivery to any destination.</p>
+            </div>
+            <div class="sc">
+                <div class="si-icon">🏠</div>
+                <h3>Home &amp; Lifestyle Goods</h3>
+                <p>Kitchen items, home goods, pet accessories, and fitness equipment — sourced and distributed with care and efficiency.</p>
+            </div>
+            <div class="sc">
+                <div class="si-icon">🚚</div>
+                <h3>Supply Chain Optimization</h3>
+                <p>Streamlining buying, selling, and shipping processes so your business focuses on growth — not logistics challenges.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team">
+    <div class="si">
+        <div class="th">
+            <span class="stag">The People Behind Dynamitech</span>
+            <h2>Our Team.</h2>
+            <p class="sdesc">Experienced professionals in logistics, technology, and sales — dedicated to driving your business forward.</p>
+        </div>
+        <div class="tg">
+            <div class="tc">
+                <div class="initials">LM</div>
+                <h3>Luis Martinez</h3>
+                <div class="trole">Chief Executive Officer</div>
+                <div class="tdiv"></div>
+                <a href="tel:7868538202" class="tci"><span class="ci-ic">📞</span>(786) 853-8202</a>
+                <a href="mailto:lmartinez@dynamitech.co" class="tci"><span class="ci-ic">✉</span>lmartinez@dynamitech.co</a>
+            </div>
+            <div class="tc">
+                <div class="initials">HA</div>
+                <h3>Humberto Albarracin</h3>
+                <div class="trole">Chief Financial Officer</div>
+                <div class="tdiv"></div>
+                <a href="tel:6128141815" class="tci"><span class="ci-ic">📞</span>(612) 814-1815</a>
+                <a href="mailto:halbarracin@dynamitech.co" class="tci"><span class="ci-ic">✉</span>halbarracin@dynamitech.co</a>
+            </div>
+            <div class="tc">
+                <div class="initials">SL</div>
+                <h3>Silvio Lupo</h3>
+                <div class="trole">VP of Assets</div>
+                <div class="tdiv"></div>
+                <a href="tel:7866037199" class="tci"><span class="ci-ic">📞</span>(786) 603-7199</a>
+                <a href="mailto:slupo@dynamitech.co" class="tci"><span class="ci-ic">✉</span>slupo@dynamitech.co</a>
+            </div>
+            <div class="tc">
+                <div class="initials">VA</div>
+                <h3>Victor Arriaga</h3>
+                <div class="trole">Chief Operating Officer</div>
+                <div class="tdiv"></div>
+                <a href="tel:9547068400" class="tci"><span class="ci-ic">📞</span>(954) 706-8400</a>
+                <a href="mailto:varriaga@dynamitech.co" class="tci"><span class="ci-ic">✉</span>varriaga@dynamitech.co</a>
+            </div>
+            <div class="tc">
+                <div class="initials">JO</div>
+                <h3>Jose Orozpeza</h3>
+                <div class="trole">Head of Business Development</div>
+                <div class="tdiv"></div>
+                <a href="tel:9547068400" class="tci"><span class="ci-ic">📞</span>(954) 706-8400</a>
+                <a href="mailto:jdoropeza@dynamitech.co" class="tci"><span class="ci-ic">✉</span>jdoropeza@dynamitech.co</a>
+            </div>
+            <div class="tc">
+                <div class="initials">NF</div>
+                <h3>Nicola Di Francesco</h3>
+                <div class="trole">Chief Sales Manager</div>
+                <div class="tdiv"></div>
+                <a href="tel:7867189212" class="tci"><span class="ci-ic">📞</span>(786) 718-9212</a>
+                <a href="mailto:ndifrancesco@dynamitech.co" class="tci"><span class="ci-ic">✉</span>ndifrancesco@dynamitech.co</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+    <div class="cta-inner">
+        <div class="cta-text">
+            <h3>Ready to Scale Your Distribution?</h3>
+            <p>Let's talk about how Dynamitech can streamline your supply chain.</p>
+        </div>
+        <a href="#contact" class="btn-white">Contact Us Now →</a>
+    </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+    <div class="si">
+        <div class="cg">
+            <div class="ci">
+                <span class="stag">Reach Out</span>
+                <h2>Let's Work<br>Together.</h2>
+                <p>Whether you're a retailer, distributor, or looking for a reliable wholesale partner — we want to hear from you. Send a message or reach us directly.</p>
+                <div class="cds">
+                    <div class="cd">
+                        <div class="cd-ic">📧</div>
+                        <div class="cd-txt">
+                            <strong>Email</strong>
+                            <a href="mailto:info@dynamitech.co">info@dynamitech.co</a>
+                        </div>
+                    </div>
+                    <div class="cd">
+                        <div class="cd-ic">📞</div>
+                        <div class="cd-txt">
+                            <strong>Phone</strong>
+                            <a href="tel:7868538202">(786) 853-8202</a>
+                        </div>
+                    </div>
+                    <div class="cd">
+                        <div class="cd-ic">📍</div>
+                        <div class="cd-txt">
+                            <strong>Location</strong>
+                            <a href="#">Miami, Florida, USA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Formspree form — replace YOUR_FORM_ID with your actual Formspree form ID from formspree.io -->
+            <div class="cf">
+                <div class="cf-title">Send Us a Message</div>
+                <div class="cf-sub">We typically respond within 24 business hours.</div>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="fr">
+                        <div class="fg">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Smith" required/>
+                        </div>
+                        <div class="fg">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company"/>
+                        </div>
+                    </div>
+                    <div class="fg">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@company.com" required/>
+                    </div>
+                    <div class="fg">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (___) ___-____"/>
+                    </div>
+                    <div class="fg">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a topic...</option>
+                            <option value="wholesale">Wholesale Inquiry</option>
+                            <option value="distribution">Distribution Partnership</option>
+                            <option value="products">Product Sourcing</option>
+                            <option value="other">General / Other</option>
+                        </select>
+                    </div>
+                    <div class="fg">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your business needs..." required></textarea>
+                    </div>
+                    <button type="submit" class="fsub">Send Message →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="fi">
+        <div class="ft">
+            <div class="fb">
+                <a href="#home" class="nav-logo" style="text-decoration:none;">
+                    <svg width="34" height="34" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="37" stroke="#E8741F" stroke-width="2.2"/>
+                        <circle cx="40" cy="40" r="26" stroke="#E8741F" stroke-width=".9" stroke-dasharray="4 2.5"/>
+                        <line x1="40" y1="14" x2="40" y2="24" stroke="#E8741F" stroke-width="2"/>
+                        <line x1="40" y1="24" x2="54" y2="24" stroke="#E8741F" stroke-width="2"/>
+                        <line x1="54" y1="24" x2="54" y2="32" stroke="#E8741F" stroke-width="2"/>
+                        <line x1="40" y1="56" x2="26" y2="56" stroke="#E8741F" stroke-width="2"/>
+                        <line x1="26" y1="56" x2="26" y2="48" stroke="#E8741F" stroke-width="2"/>
+                        <line x1="24" y1="40" x2="24" y2="26" stroke="#E8741F" stroke-width="2"/>
+                        <line x1="56" y1="40" x2="56" y2="54" stroke="#E8741F" stroke-width="2"/>
+                        <circle cx="54" cy="32" r="3" fill="#E8741F"/>
+                        <circle cx="26" cy="48" r="3" fill="#E8741F"/>
+                        <circle cx="24" cy="26" r="3" fill="#E8741F"/>
+                        <circle cx="56" cy="54" r="3" fill="#E8741F"/>
+                        <line x1="31" y1="40" x2="49" y2="40" stroke="#E8741F" stroke-width="2.5"/>
+                        <line x1="40" y1="31" x2="40" y2="49" stroke="#E8741F" stroke-width="2.5"/>
+                        <circle cx="40" cy="40" r="4.5" fill="#E8741F"/>
+                    </svg>
+                    <span class="nav-logo-text" style="color:#fff;">DYNAMITECH</span>
+                </a>
+                <p>Wholesale distribution across the US and LATAM. Streamlining the buying, selling, and distribution process for retailers and distributors worldwide.</p>
+                <div class="socials">
+                    <a href="#" class="sb" aria-label="Facebook">f</a>
+                    <a href="#" class="sb" aria-label="Instagram">ig</a>
+                    <a href="#" class="sb" aria-label="YouTube">yt</a>
+                    <a href="#" class="sb" aria-label="Twitter">tw</a>
+                    <a href="#" class="sb" aria-label="Pinterest">pt</a>
+                </div>
+            </div>
+            <div class="fc">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="fc">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@dynamitech.co">info@dynamitech.co</a></li>
+                    <li><a href="tel:7868538202">(786) 853-8202</a></li>
+                    <li><a href="#">Miami, Florida</a></li>
+                    <li><a href="https://dynamitech.co">dynamitech.co</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fb2">
+            <p>© 2026 <span>DYNAMITECH LLC</span>. All rights reserved.</p>
+            <p>Miami, Florida · <a href="mailto:info@dynamitech.co">info@dynamitech.co</a></p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
